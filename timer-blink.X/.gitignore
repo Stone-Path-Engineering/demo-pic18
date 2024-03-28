@@ -1,8 +1,7 @@
 #Ignore List for Microchip's MPLAB X IDE
 #It's a form of NetBeans with vendor specific changes
-#Taken from zeha on GIST https://gist.github.com/zeha/5999375
-#Updated by Cristian Cristea (https://github.com/cristiancristea00)
-#Updated again by Bailey Steinfadt (https://github.com/Stone-Path-Engineering)
+#Taken from https://github.com/toptal/gitignore/blob/master/templates/MPLabX.gitignore
+#Updated by Bailey Steinfadt (https://github.com/Stone-Path-Engineering)
 
 *.d
 *.pre
