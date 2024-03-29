@@ -3,7 +3,7 @@ name: demo-pic18
 on:
   push:
     tags:
-      - "v*.*.*"
+      - "v*.*"
 
 jobs:
   Release:
