@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v1
 
       - name: MPLAB Makefiles generation
-        run: prjMakefilesGenerator.sh project_name.X
+        run: prjMakefilesGenerator.sh timer-blink.X
 
       # - name: Build debug
-      #   run: make -C project_name.X CONF=debug build
+      #   run: make -C timer-blink.X CONF=debug build
 
       - name: Build release
-        run: make -C project_name.X CONF=release build
+        run: make -C timer-blink.X CONF=release build
