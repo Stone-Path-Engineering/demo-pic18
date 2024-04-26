@@ -7,13 +7,13 @@ jobs:
   build:
     name: Build project
     runs-on: ubuntu-latest
-    container: alexfabre/mplabx-xc8:2.46
+    container: "ghcr.io/stone-path-engineering/demo-pic18:main"
     steps:
       - name: Download source
         uses: actions/checkout@v1
 
       - name: MPLAB Makefiles generation
-        run: prjMakefilesGenerator.sh timer-blink.X
+        run: prjMakefilesGenerator.sh timer-blink.X -mdfp=/opt/mplabx/packs/Microchip/${PACK_FAMILY}/${PACK_VERSION}
 
       # - name: Build debug
       #   run: make -C timer-blink.X CONF=debug build

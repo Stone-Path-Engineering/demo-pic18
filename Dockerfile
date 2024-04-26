@@ -59,6 +59,8 @@ RUN wget -nv -O /tmp/pack "https://packs.download.microchip.com/Microchip.${PACK
     unzip /tmp/pack -d /opt/mplabx/packs/Microchip/${PACK_FAMILY}/${PACK_VERSION} && \
     rm /tmp/pack
 
+ENV PACK_FAMILY ${PACK_FAMILY}
+ENV PACK_VERSION ${PACK_VERSION}
 
 # Uninstall? Check after testing above works
 #opt/microchip/mplabcomm/3.53.00/MPLABCOMM-3.53.00-linux-installer.run
