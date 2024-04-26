@@ -20,3 +20,12 @@ jobs:
 
       - name: Build release
         run: make -C timer-blink.X CONF=release build CFLAGS="-mdfp=/opt/mplabx/packs/Microchip/$PACK_FAMILY/$PACK_VERSION"
+      
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-pic18-build-artifacts
+          path: |
+            timer-blink.X/dist/release/timer-blink.X.production.elf
+            timer-blink.X/dist/release/timer-blink.X.production.hex
+            timer-blink.X/dist/release/timer-blink.X.production.map
