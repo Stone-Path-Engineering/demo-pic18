@@ -26,6 +26,6 @@ jobs:
         with:
           name: demo-pic18-build-artifacts
           path: |
-            demo-pic18/timer-blink.X/dist/release/production/timer-blink.X.production.elf
-            demo-pic18/timer-blink.X/dist/release/production/timer-blink.X.production.hex
-            demo-pic18/timer-blink.X/dist/release/production/timer-blink.X.production.map
+            timer-blink.X/dist/release/production/timer-blink.X.production.elf
+            timer-blink.X/dist/release/production/timer-blink.X.production.hex
+            timer-blink.X/dist/release/production/timer-blink.X.production.map
