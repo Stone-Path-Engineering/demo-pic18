@@ -135,7 +135,7 @@ This project uses [Semantic Versioning](http://semver.org/). For a list of avail
 
 ## How to Get Help
 
-Provide any instructions or contact information for users who need to get further help with your project.
+Please review [CONTRIBUTING.md](docs/CONTRIBUTING.md) for details on our code of conduct and how to send questions.
 
 ## Contributing
 
