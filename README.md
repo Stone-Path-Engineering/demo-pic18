@@ -75,12 +75,10 @@ Remember: `git-lfs` is a dependency that developers will need to resolve before 
 
 ### Getting the Source
 
-Include a link to your GitHub repository (you have no idea how people will find your code), and also a summary of how to clone.
-
-This project is [hosted on GitHub](https://github.com/Stone-Path-Engineering/examples). You can clone this project directly using this command:
+This project is [hosted on GitHub](https://github.com/Stone-Path-Engineering/demo-pic18). You can clone this project directly using this command:
 
 ```bash
-git clone git@github.com:Stone-Path-Engineering/examples.git
+git clone git@github.com:Stone-Path-Engineering/demo-pic18.git
 ```
 
 ### Building
