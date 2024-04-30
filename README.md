@@ -103,33 +103,21 @@ If you have formatting checks, coding style checks, or static analysis tests tha
 
 ### Installation
 
-Instructions for how to install your project's build artifacts
+## Firmware Release Process
 
-```bash
-# Examples should be included
-```
-
-### Usage
-
-Instructions for using your project. Ways to run the program, how to include it in another project, etc.
-
-```bash
-# Examples should be included
-```
-
-If your project provides an API, either provide details for usage in this document or link to the appropriate API reference documents
-
-**[Back to top](#table-of-contents)**
-
-## Release Process
-
-Talk about the release process. How are releases made? What cadence? How to get new releases?
+Firmware releases are made to this project as examples to reference for your own projects only. Releases are made by adding a tag in the form `v#.#.#` to trigger the demo-pic18-release workflow.
 
 ### Versioning
 
-This project uses [Semantic Versioning](http://semver.org/). For a list of available versions, see the [repository tag list](https://github.com/your/project/tags).
+This project uses [Semantic Versioning](http://semver.org/). For a list of available versions, see the [repository tag list](https://github.com/Stone-Path-Engineering/demo-pic18/tags).
 
-### Payload
+**[Back to top](#table-of-contents)**
+
+## Docker Image Release Process
+
+Docker packages are made in this project as examples to reference for your own projects only. Docker releases are made by triggering the manual demo-pic18-dockerfile workflow.
+
+Different versions of MPLabX, XC8, or Device Packs can be installed in an image by providing the desired versions as arguments when building the image. Multiple device packs is not supported by the current Dockerfile.
 
 **[Back to top](#table-of-contents)**
 
