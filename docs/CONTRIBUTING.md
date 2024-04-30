@@ -31,9 +31,13 @@ By participating in this project, you agree to abide by our [Code of Conduct][0]
 
 ## Questions
 
+! **TODO**
+
 How do you prefer people to ask questions? Via an issue? Is there an IRC channel, Google group, or other way to get help? Should issues that are questions get a specific label? Can they email you directly?
 
 ## Feature Requests
+
+! **TODO**
 
 Provide information on the process for requesting new features. Do you have a specific label that should be applied? Is sign-off needed?
 
@@ -57,6 +61,8 @@ Have you seen an awesome issue report? Link to it for others to view!
 
 ## Improving Documentation
 
+! **TODO**
+
 Include notes for how users can improve the documentation.
 
 > Should you have a suggestion for the documentation, you can open an issue and outline the problem or improvement you have - however, creating the doc fix yourself is much better!
@@ -71,6 +77,8 @@ Provide instructions on building and viewing documentation
 
 ## Contributing Code
 
+! **TODO**
+
 This section is used to get new contributors up and running with dependencies, development, testing, style rules, formatting rules, and other things they should know.
 
 If you have a label for beginner issues, talk about that here so they know where to look:
@@ -84,6 +92,8 @@ Working on your first open source project or pull request? Here are some helpful
 * [First Timers Only][4]
 
 ### Getting Started
+
+! **TODO**
 
 Install these dependencies:
 
@@ -114,6 +124,8 @@ For more information on the GitHub fork and pull-request processes, [please see 
 
 ### Finding an Issue
 
+! **TODO**
+
 The list of outstanding feature requests and bugs can be found on our on our [GitHub issue tracker][6]. Pick an unassigned issue that you think you can accomplish and add a comment that you are attempting to do it.
 
 Provide notes on different kinds of issues or labels
@@ -124,6 +136,8 @@ Provide notes on different kinds of issues or labels
 
 ### Development Process
 
+! **TODO**
+
 What is your development process?
 
 > This project follows the [git flow](http://nvie.com/posts/a-successful-git-branching-model/) branching model of product development.
@@ -133,6 +147,8 @@ Talk about branches people should work on. Specifically, where is the starting p
 > You should be using the master branch for the most stable release; please review [release notes](https://github.com/openopps/openopps-platform/releases) regularly. We do releases every week or two and send out notes. If you want to keep up with the latest changes, we work in the `dev` branch.  If you are using dev, keep an eagle-eye on commits and/or join our daily stand-up.
 
 ### Building the Project
+
+! **TODO**
 
 What branches should be work be started off of?
 
@@ -152,6 +168,8 @@ Keep your tests as simple as possible.
 
 ### Testing
 
+! **TODO**
+
 If you add code you need to add tests! We’ve learned the hard way that code without tests is undependable. If your pull request reduces our test coverage because it lacks tests then it will be rejected.
 
 Provide instructions for adding new tests. Provide instructions for running tests.
@@ -162,9 +180,13 @@ with examples
 
 ### Style Guidelines
 
+! **TODO**
+
 If your code has any style guidelines, add them here or provide links to relevant documents. If you have an automated checker, make sure to provide instructions on how to run it.
 
 ### Code Formatting
+
+! **TODO**
 
 If your code has any formatting guidelines that aren't covered in the style guidelines above, add them here.
 
@@ -176,11 +198,15 @@ Provide instructions for running the formatting tool
 
 ### Whitespace Cleanup
 
+! **TODO**
+
 Don’t mix code changes with whitespace cleanup! If you are fixing whitespace, include those changes separately from your code changes. If your request is unreadable due to whitespace changes, it will be rejected.
 
 > Please submit whitespace cleanups in a separate pull request.
 
 ### Git Commit Guidelines
+
+! **TODO**
 
 Do you have any guidelines for your commit messages? Include them here.
 
@@ -202,6 +228,8 @@ references", such as which issues were fixed.
 > For further notes about git commit messages, [please read this blog post][7].
 
 ## Pull Request Process
+
+! **TODO**
 
 Do you have any labeling conventions?
 
@@ -228,6 +256,8 @@ Include a note about submitting the PR:
 
 ### Review Process
 
+! **TODO**
+
 Who reviews it? Who needs to sign off before it’s accepted? When should a contributor expect to hear from you? How can contributors get commit access, if at all?
 
 > The core team looks at Pull Requests on a regular basis in a weekly triage meeting that we hold in a public Google Hangout. The hangout is announced in the weekly status updates that are sent to the puppet-dev list. Notes are posted to the Puppet Community community-triage repo and include a link to a YouTube recording of the hangout. After feedback has been given we expect responses within two weeks. After two weeks we may close the pull request if it isn't showing any activity.
@@ -237,6 +267,8 @@ Who reviews it? Who needs to sign off before it’s accepted? When should a cont
 Perhaps also provide the steps your team will use for checking a PR. Or discuss the steps run on your CI server if you have one. This will help developers understand how to investigate any failures or test the process on their own.
 
 ### Addressing Feedback
+
+! **TODO**
 
 Once a PR has been submitted, your changes will be reviewed and constructive feedback may be provided. Feedback isn't meant as an attack, but to help make sure the highest-quality code makes it into our project. Changes will be approved once required feedback has been addressed.
 
@@ -266,6 +298,8 @@ git push -f
 Note that this will overwrite the old branch on the server, so make sure you are happy with your changes first!
 
 ## Community
+
+! **TODO**
 
 Do you have a mailing list, Google group, slack channel, IRC channel? Link to them here.
 
