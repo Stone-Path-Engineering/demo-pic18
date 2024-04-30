@@ -1,15 +1,13 @@
 # PIC18 Demo Project
 
-Demonstration project for PIC18 microcontrollers.
+Demonstration project for PIC18 microcontrollers that provides:
 
 * Dockerfile with MPLabX and XC8 compiler
-* GitHub workflows to build and release firmware
+* Manual GitHub workflow to create Docker image in GitHub Packages
 * Hello world firmware that blinks the built-in LED on the Curiosity Nano PIC18F57Q84 board using a timer interrupt.
+* GitHub workflows to build and release firmware
 
-
-* What your project does
-* Why people should consider using your project
-* Link to project home page
+The repository is designed so that the firmware can be built and tested in GitHub Actions while still allowing developers to build, edit, and debug the firmware in MPLabX.
 
 ## Table of Contents
 
