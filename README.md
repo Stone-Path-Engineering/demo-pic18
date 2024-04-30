@@ -11,14 +11,12 @@ The repository is designed so that the firmware can be built and tested in GitHu
 
 ## Table of Contents
 
-1. [About the Project](#about-the-project)
 1. [Project Status](#project-status)
 1. [Getting Started](#getting-started)
     1. [Dependencies](#dependencies)
     1. [Building](#building)
     1. [Running Tests](#running-tests)
         1. [Other Tests](#other-tests)
-    1. [Installation](#installation)
     1. [Usage](#usage)
 1. [Release Process](#release-process)
     1. [Versioning](#versioning)
@@ -30,26 +28,17 @@ The repository is designed so that the firmware can be built and tested in GitHu
 1. [Authors](#authors)
 1. [Acknowledgments](#acknowledgments)
 
-## About the Project
-
-Here you can provide more details about the project
-
-* What features does your project provide?
-* Short motivation for the project? (Don't be too long winded)
-* Links to the project site
-
-```python
-# Show some example code to describe what your project does
-# Show some of your APIs
-```
-
-**[Back to top](#table-of-contents)**
-
 ## Project Status
 
 ![Build Status](https://github.com/Stone-Path-Engineering/demo-pic18/actions/workflows/build.yml/badge.svg?branch=main)
 
-Describe the current release and any notes about the current state of the project. Examples: currently compiles on your host machine, but is not cross-compiling for ARM, APIs are not set, feature not implemented, etc.
+While this project should work on any computer that can install MPLabX or Docker, it has been tested in GitHub Actions, natively on Windows with MPLabX 6.20, and in Docker running on Windows with no native MPLabX installation.
+
+Similarly, while the project materials should be easily adaptable to any MCU that is supported by the Microchip XC8 compiler, it has only been tested using the PIC18F57Q84.
+
+The provided materials should allow developers to use the provided Dockerfile to create a devcontainer in order to develop firmware in VSCode or other IDEs. However, this use case is not covered in documentation nor example files at this time.
+
+Roadmap for improvements and features can be found in the [Issue Tracker](https://github.com/Stone-Path-Engineering/demo-pic18/issues). Unassigned issues are [open for contribution](#contributing).
 
 **[Back to top](#table-of-contents)**
 
@@ -66,8 +55,6 @@ These instructions will get you a copy of the project up and running on your loc
 ! **TODO**
 
 Describe what software and libraries you will need to install in order to build and use this project. Provide details on how to resolve these dependencies.
-
-Remember: `git-lfs` is a dependency that developers will need to resolve before they can get started with a repository using LFS.
 
 ```bash
 # Examples should be included
