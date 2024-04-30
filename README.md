@@ -1,22 +1,175 @@
 # PIC18 Demo Project
 
-Blinks the built-in LED on the Curiosity Nano PIC18F57Q84 board using a timer interrupt.
+Demonstration project for PIC18 microcontrollers.
 
-Used [Microchip Example](https://github.com/microchip-pic-avr-examples/pic18f57q43-blink-with-timer-mplab-mcc) for a similar board as a starting point.
+* Dockerfile with MPLabX and XC8 compiler
+* GitHub workflows to build and release firmware
+* Hello world firmware that blinks the built-in LED on the Curiosity Nano PIC18F57Q84 board using a timer interrupt.
 
-Want to get working with a UART as well. May use [this example](https://github.com/microchip-pic-avr-examples/pic18f57q43-dma-uart-echo-mplab-mcc)
 
-Build script example
+* What your project does
+* Why people should consider using your project
+* Link to project home page
+
+## Table of Contents
+
+1. [About the Project](#about-the-project)
+1. [Project Status](#project-status)
+1. [Getting Started](#getting-started)
+    1. [Dependencies](#dependencies)
+    1. [Building](#building)
+    1. [Running Tests](#running-tests)
+        1. [Other Tests](#other-tests)
+    1. [Installation](#installation)
+    1. [Usage](#usage)
+1. [Release Process](#release-process)
+    1. [Versioning](#versioning)
+    1. [Payload](#payload)
+1. [How to Get Help](#how-to-get-help)
+1. [Contributing](#contributing)
+1. [Further Reading](#further-reading)
+1. [License](#license)
+1. [Authors](#authors)
+1. [Acknowledgments](#acknowledgments)
+
+## About the Project
+
+Here you can provide more details about the project
+
+* What features does your project provide?
+* Short motivation for the project? (Don't be too long winded)
+* Links to the project site
+
+```python
+# Show some example code to describe what your project does
+# Show some of your APIs
+```
+
+**[Back to top](#table-of-contents)**
+
+## Project Status
+
+![Build Status](https://github.com/Stone-Path-Engineering/demo-pic18/actions/workflows/build.yml/badge.svg?branch=main)
+
+Describe the current release and any notes about the current state of the project. Examples: currently compiles on your host machine, but is not cross-compiling for ARM, APIs are not set, feature not implemented, etc.
+
+**[Back to top](#table-of-contents)**
+
+## Getting Started
+
+This section should provide instructions for other developers to
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Dependencies
+
+Describe what software and libraries you will need to install in order to build and use this project. Provide details on how to resolve these dependencies.
+
+Remember: `git-lfs` is a dependency that developers will need to resolve before they can get started with a repository using LFS.
 
 ```bash
-#!/bin/bash
-
-echo "Building project $1:$2"
-
-xc8-cc --version
-
-set -x -e
-
-/opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh "timer-blink.X@default" || exit 1
-make -C "timer-blink.X" CONF="default" build || exit 2
+# Examples should be included
 ```
+
+### Getting the Source
+
+Include a link to your GitHub repository (you have no idea how people will find your code), and also a summary of how to clone.
+
+This project is [hosted on GitHub](https://github.com/Stone-Path-Engineering/examples). You can clone this project directly using this command:
+
+```bash
+git clone git@github.com:Stone-Path-Engineering/examples.git
+```
+
+### Building
+
+Instructions for how to build your project
+
+```bash
+# Examples should be included
+```
+
+### Running Tests
+
+Describe how to run unit tests for your project.
+
+```bash
+# Examples should be included
+```
+
+#### Other Tests
+
+If you have formatting checks, coding style checks, or static analysis tests that must pass before changes will be considered, add a section for those and provide instructions
+
+### Installation
+
+Instructions for how to install your project's build artifacts
+
+```bash
+# Examples should be included
+```
+
+### Usage
+
+Instructions for using your project. Ways to run the program, how to include it in another project, etc.
+
+```bash
+# Examples should be included
+```
+
+If your project provides an API, either provide details for usage in this document or link to the appropriate API reference documents
+
+**[Back to top](#table-of-contents)**
+
+## Release Process
+
+Talk about the release process. How are releases made? What cadence? How to get new releases?
+
+### Versioning
+
+This project uses [Semantic Versioning](http://semver.org/). For a list of available versions, see the [repository tag list](https://github.com/your/project/tags).
+
+### Payload
+
+**[Back to top](#table-of-contents)**
+
+## How to Get Help
+
+Provide any instructions or contact information for users who need to get further help with your project.
+
+## Contributing
+
+We encourage public contributions! Please review [CONTRIBUTING.md](docs/CONTRIBUTING.md) for details on our code of conduct and development process.
+
+**[Back to top](#table-of-contents)**
+
+## Further Reading
+
+* [Publishing Docker images to GitHub Packages](https://docs.github.com/en/actions/publishing-packages/publishing-docker-images#publishing-images-to-github-packages)
+* [XC8 Compiler Users Guide](https://onlinedocs.microchip.com/pr/%20GUID-BB433107-FD4E-4D28-BB58-9D4A58955B1A-en-US-1/index.html)
+
+**[Back to top](#table-of-contents)**
+
+## License
+
+Copyright (c) 2024 Stone Path Engineering LLC
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
+
+**[Back to top](#table-of-contents)**
+
+## Authors
+
+* **[Bailey Steinfadt](https://github.com/baileysage)** - *Initial and ongoing work* - [Stone Path Engineering](https://github.com/Stone-Path-Engineering)
+
+* **[Aaron Fontaine](https://github.com/afontaine79)** - *Consulting, review, and testing*
+
+**[Back to top](#table-of-contents)**
+
+## Acknowledgments
+
+* [Microchip Example](https://github.com/microchip-pic-avr-examples/pic18f57q43-blink-with-timer-mplab-mcc) - used as a starting point for this project.
+* [Alex Fabre XC8 Dockerfile](https://github.com/AlexFabre/mplabx-xc8) - used as a starting point for Dockerfile and workflows.
+* [Phillip Johnston](https://github.com/phillipjohnston) - Supplied initial document templates - [Embedded Artistry](https://github.com/embeddedartistry/templates)
+
+**[Back to top](#table-of-contents)**
