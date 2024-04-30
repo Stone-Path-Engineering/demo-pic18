@@ -8,21 +8,26 @@ on:
 jobs:
   Release:
     runs-on: ubuntu-latest
-    container: alexfabre/mplabx-xc8:2.46
+    container: "ghcr.io/stone-path-engineering/demo-pic18:main"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
       - name: MPLAB Makefiles generation
-        run: prjMakefilesGenerator.sh project_name.X
+        run: prjMakefilesGenerator.sh timer-blink.X
+
       - name: Build release
-        run: make -C project_name.X CONF=release build
+        run: make -C timer-blink.X CONF=release build CFLAGS="-mdfp=/opt/mplabx/packs/Microchip/$PACK_FAMILY/$PACK_VERSION"
+      
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           generate_release_notes: true
           files: |
-            demo-pic18/timer-blink.X/dist/release/timer-blink.X.production.elf
-            demo-pic18/timer-blink.X/dist/release/timer-blink.X.production.hex
-            demo-pic18/timer-blink.X/dist/release/timer-blink.X.production.map
+            timer-blink.X/dist/release/production/timer-blink.X.production.elf
+            timer-blink.X/dist/release/production/timer-blink.X.production.hex
+            timer-blink.X/dist/release/production/timer-blink.X.production.bin
             LICENSE
+            
+          # Future files: DFU binaries          
