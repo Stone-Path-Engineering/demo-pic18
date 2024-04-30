@@ -57,11 +57,15 @@ Describe the current release and any notes about the current state of the projec
 
 ## Getting Started
 
+! **TODO**
+
 This section should provide instructions for other developers to
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Dependencies
+
+! **TODO**
 
 Describe what software and libraries you will need to install in order to build and use this project. Provide details on how to resolve these dependencies.
 
@@ -83,6 +87,8 @@ git clone git@github.com:Stone-Path-Engineering/examples.git
 
 ### Building
 
+! **TODO**
+
 Instructions for how to build your project
 
 ```bash
@@ -90,6 +96,8 @@ Instructions for how to build your project
 ```
 
 ### Running Tests
+
+! **TODO**
 
 Describe how to run unit tests for your project.
 
@@ -99,9 +107,11 @@ Describe how to run unit tests for your project.
 
 #### Other Tests
 
+! **TODO**
+
 If you have formatting checks, coding style checks, or static analysis tests that must pass before changes will be considered, add a section for those and provide instructions
 
-### Installation
+**[Back to top](#table-of-contents)**
 
 ## Firmware Release Process
 
