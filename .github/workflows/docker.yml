@@ -3,7 +3,24 @@ name: demo-pic18-dockerfile
 # Configures this workflow to run on manual request
 on:
   workflow_dispatch:
-
+    inputs:
+      MPLABX_VERSION:
+        description: 'Will use version specified in Dockerfile unless specified here'
+        required: false
+        type: string
+      XC8_VERSION:
+        description: 'Will use version specified in Dockerfile unless specified here'
+        required: false
+        type: string
+      PACK_FAMILY:
+        description: 'Will use family specified in Dockerfile unless specified here'
+        required: false
+        type: string
+      PACK_VERSION:
+        description: 'Will use version specified in Dockerfile unless specified here'
+        required: false
+        type: string
+        
 # Defines two custom environment variables for the workflow. These are used for the Container registry domain, and a name for the Docker image that this workflow builds.
 env:
   REGISTRY: ghcr.io
