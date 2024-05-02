@@ -44,21 +44,13 @@ Roadmap for improvements and features can be found in the [Issue Tracker](https:
 
 ## Getting Started
 
-! **TODO**
-
-This section should provide instructions for other developers to
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Dependencies
 
-! **TODO**
+To use this demo project locally, you will need to install either [MPLabX IDE](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide) with the XC8 compiler, or [Docker](https://docs.docker.com/get-docker/).
 
-Describe what software and libraries you will need to install in order to build and use this project. Provide details on how to resolve these dependencies.
-
-```bash
-# Examples should be included
-```
+If you are using both, for exapmle, the IDE locally and Docker on GitHub Actions, ensure that the IDE and compiler versions you are using to build your Docker image match what you installed locally. The IDE will help you download the correct device pack, but if you change it, ensure that it matches in both environments as well.
 
 ### Getting the Source
 
@@ -70,29 +62,27 @@ git clone git@github.com:Stone-Path-Engineering/demo-pic18.git
 
 ### Building
 
-! **TODO**
+If using the IDE, build using the tools included in the toolbars of the IDE. Note which configuration is active when you build and whether you're building via the `Production` menu or the `Debug` ones. The GitHub Actions workflows build a production build using the release configuration, but can be edited to build with debug options or a different configuration.
 
-Instructions for how to build your project
+When using the command line, you must first generate the makefiles for the Microchip generated components specified in your project and configuration files.
 
 ```bash
-# Examples should be included
+prjMakefilesGenerator.sh timer-blink.X
 ```
+
+Then, you can build using make. The `CONF` option specifies which configuration will build, and the `-mdfp` flag will be passed into the compiler to specify which device pack you are using.
+
+```bash
+make -C timer-blink.X CONF=release build CFLAGS="-mdfp=/opt/mplabx/packs/Microchip/$PACK_FAMILY/$PACK_VERSION"
+```
+
+Condensing this into a single build script is on the roadmap.
 
 ### Running Tests
 
-! **TODO**
+TBD.
 
-Describe how to run unit tests for your project.
-
-```bash
-# Examples should be included
-```
-
-#### Other Tests
-
-! **TODO**
-
-If you have formatting checks, coding style checks, or static analysis tests that must pass before changes will be considered, add a section for those and provide instructions
+Getting CppCheck and unit tests running on this project is on the near term roadmap.
 
 **[Back to top](#table-of-contents)**
 
