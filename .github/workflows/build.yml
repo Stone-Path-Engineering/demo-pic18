@@ -16,16 +16,31 @@ jobs:
         run: prjMakefilesGenerator.sh timer-blink.X
 
       # - name: Build debug
-      #   run: make -C timer-blink.X CONF=debug build
+      #   run: make -C timer-blink.X CONF=default build CFLAGS="-mdfp=/opt/mplabx/packs/Microchip/$PACK_FAMILY/$PACK_VERSION"
+      
+      # - name: Archive debug artifacts
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: demo-pic18-build-artifacts
+      #     path: |
+      #       timer-blink.X/dist/default/debug/timer-blink.X.debug.elf
+      #       timer-blink.X/dist/default/debug/timer-blink.X.debug.hex
+      #       timer-blink.X/dist/default/debug/timer-blink.X.debug.bin
+      #       timer-blink.X/dist/default/debug/timer-blink.X.debug.map
+      #       timer-blink.X/dist/default/debug/timer-blink.X.debug.lst
 
       - name: Build release
         run: make -C timer-blink.X CONF=release build CFLAGS="-mdfp=/opt/mplabx/packs/Microchip/$PACK_FAMILY/$PACK_VERSION"
       
-      - name: Archive production artifacts
+      - name: Archive release artifacts
         uses: actions/upload-artifact@v4
         with:
           name: demo-pic18-build-artifacts
           path: |
             timer-blink.X/dist/release/production/timer-blink.X.production.elf
             timer-blink.X/dist/release/production/timer-blink.X.production.hex
+            timer-blink.X/dist/release/production/timer-blink.X.production.bin
             timer-blink.X/dist/release/production/timer-blink.X.production.map
+            timer-blink.X/dist/release/production/timer-blink.X.production.lst
+
+          # Future files: DFU binaries
