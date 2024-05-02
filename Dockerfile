@@ -1,14 +1,19 @@
-FROM ubuntu:24.04
-
-# Starting point from Alex Fabre at https://github.com/AlexFabre/mplabx-xc8
-LABEL author="Bailey Steinfadt"
-LABEL description="Build MPLAB X projects with XC8"
-LABEL org.opencontainers.image.description "Build MPLAB X projects with XC8"
-
 ARG MPLABX_VERSION=6.20
 ARG XC8_VERSION=2.46
 ARG PACK_FAMILY=PIC18F-Q_DFP
 ARG PACK_VERSION=1.25.433
+
+FROM ubuntu:24.04
+
+# Starting point from Alex Fabre at https://github.com/AlexFabre/mplabx-xc8
+LABEL org.opencontainers.image.authors="Bailey Steinfadt"
+LABEL org.opencontainers.image.vendor "Stone Path Engineering, LLC"
+LABEL org.opencontainers.image.title "MPLABX - XC8"
+LABEL org.opencontainers.image.description "Build MPLAB X projects with XC8"
+LABEL com.stonepathengineering.demo-pic18.mplabx_version=$MPLABX_VERSION
+LABEL com.stonepathengineering.demo-pic18.xc8_version=$XC8_VERSION
+LABEL com.stonepathengineering.demo-pic18.pack_family=$PACK_FAMILY
+LABEL com.stonepathengineering.demo-pic18.pack_version=$PACK_VERSION
 
 # Install the dependencies
 # See https://microchipdeveloper.com/install:mplabx-lin64
