@@ -27,7 +27,7 @@ jobs:
           files: |
             timer-blink.X/dist/release/production/timer-blink.X.production.elf
             timer-blink.X/dist/release/production/timer-blink.X.production.hex
-            timer-blink.X/dist/release/production/timer-blink.X.production.bin
             LICENSE
             
           # Future files: DFU binaries          
+          # timer-blink.X/dist/release/production/timer-blink.X.production.bin

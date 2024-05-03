@@ -39,8 +39,8 @@ jobs:
           path: |
             timer-blink.X/dist/release/production/timer-blink.X.production.elf
             timer-blink.X/dist/release/production/timer-blink.X.production.hex
-            timer-blink.X/dist/release/production/timer-blink.X.production.bin
             timer-blink.X/dist/release/production/timer-blink.X.production.map
             timer-blink.X/dist/release/production/timer-blink.X.production.lst
 
           # Future files: DFU binaries
+          # timer-blink.X/dist/release/production/timer-blink.X.production.bin
