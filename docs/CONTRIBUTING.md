@@ -1,4 +1,4 @@
-# How to Contribute to This Demo Project
+# How to Contribute to This Demo Project <!-- omit from toc -->
 
 Hello! We're glad you're reading this because we always welcome new features, bug reports, documentation updates, and tips on best practices! We are a small team, so do be patient with us as we may not be able to respond to contributions immediately.
 

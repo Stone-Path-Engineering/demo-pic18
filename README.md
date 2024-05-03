@@ -1,4 +1,6 @@
-# PIC18 Demo Project
+# PIC18 Demo Project <!-- omit from toc -->
+
+![Build Status](https://github.com/Stone-Path-Engineering/demo-pic18/actions/workflows/build.yml/badge.svg?branch=main)
 
 Demonstration project for PIC18 microcontrollers that provides:
 
@@ -28,8 +30,6 @@ The repository is designed so that the firmware can be built and tested in GitHu
 
 ## Project Status
 
-![Build Status](https://github.com/Stone-Path-Engineering/demo-pic18/actions/workflows/build.yml/badge.svg?branch=main)
-
 While this project should work on any computer that can install MPLabX or Docker, it has been tested in GitHub Actions, natively on Windows with MPLabX 6.20, and in Docker running on Windows with no native MPLabX installation.
 
 Similarly, while the project materials should be easily adaptable to any MCU that is supported by the Microchip XC8 compiler, it has only been tested using the PIC18F57Q84.
@@ -55,7 +55,7 @@ If you are using both, for exapmle, the IDE locally and Docker on GitHub Actions
 This project is [hosted on GitHub](https://github.com/Stone-Path-Engineering/demo-pic18). You can clone this project directly using this command:
 
 ```bash
-git clone git@github.com:Stone-Path-Engineering/demo-pic18.git
+git clone https://github.com/Stone-Path-Engineering/demo-pic18.git
 ```
 
 ### Building

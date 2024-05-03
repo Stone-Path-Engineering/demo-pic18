@@ -1,4 +1,4 @@
-# Contributor Code of Conduct
+# Contributor Code of Conduct <!-- omit from toc -->
 
 **Table of Contents:**
 
