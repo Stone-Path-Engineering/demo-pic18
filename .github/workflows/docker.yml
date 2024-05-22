@@ -60,12 +60,12 @@ jobs:
           fi
           n=`expr BUILD_ARG_CHECK : '.*'`
           if [ $n -lt 2 ]; then
-          printf BUILD_ARG_CHECK=''
+          BUILD_ARG_CHECK=''
           fi
           echo $BUILD_ARG_CHECK
           {
             echo 'BUILD_ARGS<<EOL'
-            $BUILD_ARG_CHECK
+            printf $BUILD_ARG_CHECK
             echo EOL
           } >> "$GITHUB_ENV"
           
