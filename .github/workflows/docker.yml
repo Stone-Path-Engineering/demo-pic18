@@ -27,7 +27,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  BUILD_ARGS: ''
+  BUILD_ARGS: '|\n'
 
 # There is a single job in this workflow. 
 # It's configured to run on the latest available version of Ubuntu.
@@ -46,16 +46,16 @@ jobs:
       - name: Determine Build Args
         run: |
           if [ -n "${{ github.event.inputs.MPLABX_VERSION }}" ]; then
-          MPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }} >> ${{ env.BUILD_ARGS }}
+          "MPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}\n" > ${{ env.BUILD_ARGS }}
           fi
           if [ -n "${{ github.event.inputs.XC8_VERSION }}" ]; then
-          XC8_VERSION=${{ github.event.inputs.XC8_VERSION }} >> ${{ env.BUILD_ARGS }}
+          "XC8_VERSION=${{ github.event.inputs.XC8_VERSION }}\n" > ${{ env.BUILD_ARGS }}
           fi
           if [ -n "${{ github.event.inputs.PACK_FAMILY }}" ]; then
-          PACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }} >> ${{ env.BUILD_ARGS }}
+          "PACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }}\n" > ${{ env.BUILD_ARGS }}
           fi
           if [ -n "${{ github.event.inputs.PACK_VERSION }}" ]; then
-          PACK_VERSION=${{ github.event.inputs.PACK_VERSION }} >> ${{ env.BUILD_ARGS }}
+          "PACK_VERSION=${{ github.event.inputs.PACK_VERSION }}\n" > ${{ env.BUILD_ARGS }}
           fi
           echo ${{ env.BUILD_ARGS }}
       - name: Checkout repository
