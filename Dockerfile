@@ -1,9 +1,9 @@
+FROM ubuntu:24.04
+
 ARG MPLABX_VERSION=6.20
 ARG XC8_VERSION=2.46
 ARG PACK_FAMILY=PIC18F-Q_DFP
 ARG PACK_VERSION=1.25.433
-
-FROM ubuntu:24.04
 
 # Starting point from Alex Fabre at https://github.com/AlexFabre/mplabx-xc8
 LABEL org.opencontainers.image.authors="Bailey Steinfadt"
