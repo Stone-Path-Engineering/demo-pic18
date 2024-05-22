@@ -46,18 +46,18 @@ jobs:
       - name: Determine Build Args
         run: |
           if [ -n "${{ github.event.inputs.MPLABX_VERSION }}" ]; then
-          "\nMPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}" >> ${{ env.BUILD_ARGS }}
+          echo "\nMPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}" >> ${{ env.BUILD_ARGS }}
           fi
           if [ -n "${{ github.event.inputs.XC8_VERSION }}" ]; then
-          "\nXC8_VERSION=${{ github.event.inputs.XC8_VERSION }}" >> ${{ env.BUILD_ARGS }}
+          echo "\nXC8_VERSION=${{ github.event.inputs.XC8_VERSION }}" >> ${{ env.BUILD_ARGS }}
           fi
           if [ -n "${{ github.event.inputs.PACK_FAMILY }}" ]; then
-          "\nPACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }}" >> ${{ env.BUILD_ARGS }}
+          echo "\nPACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }}" >> ${{ env.BUILD_ARGS }}
           fi
           if [ -n "${{ github.event.inputs.PACK_VERSION }}" ]; then
-          "\nPACK_VERSION=${{ github.event.inputs.PACK_VERSION }}" >> ${{ env.BUILD_ARGS }}
+          echo "\nPACK_VERSION=${{ github.event.inputs.PACK_VERSION }}" >> ${{ env.BUILD_ARGS }}
           fi
-          if [ ${#myvar} < 3 ]; then
+          if [ ${#${{ env.BUILD_ARGS }}} < 3 ]; then
           ${{ env.BUILD_ARGS }} = ''
           fi
           echo ${{ env.BUILD_ARGS }}
