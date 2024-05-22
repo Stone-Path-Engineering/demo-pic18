@@ -21,7 +21,7 @@ LABEL com.stonepathengineering.demo-pic18.pack_version=$PACK_VERSION
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-    libc6:i386=2.39-0ubuntu8 \
+    libc6:i386=2.39-0ubuntu8.1 \
     libx11-6:i386=2:1.8.7-1build1 \
     libxext6:i386=2:1.3.4-1build2 \
     libstdc++6:i386=14-20240412-0ubuntu1 \
