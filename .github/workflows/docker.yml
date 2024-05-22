@@ -57,8 +57,9 @@ jobs:
           if [ -n "${{ github.event.inputs.PACK_VERSION }}" ]; then
           echo "\nPACK_VERSION=${{ github.event.inputs.PACK_VERSION }}" >> ${{ env.BUILD_ARGS }}
           fi
-          if [ ${#${{ env.BUILD_ARGS }}} < 3 ]; then
-          ${{ env.BUILD_ARGS }} = ''
+          n=`expr ${{ env.BUILD_ARGS }} : '.*'`
+          if [ $n -lt 3 ]; then
+          ${{ env.BUILD_ARGS }}=''
           fi
           echo ${{ env.BUILD_ARGS }}
       - name: Checkout repository
