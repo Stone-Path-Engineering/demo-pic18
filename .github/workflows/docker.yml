@@ -45,7 +45,7 @@ jobs:
       # and the default one in the Dockerfile will be used. 
       - name: Determine Build Args
         run: |
-          BUILD_ARG_CHECK="["
+          BUILD_ARG_CHECK="[${{ github.sha }}"
           if [ -n "${{ github.event.inputs.MPLABX_VERSION }}" ]; then
           BUILD_ARG_CHECK="$BUILD_ARG_CHECK,MPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}"
           fi
@@ -58,12 +58,7 @@ jobs:
           if [ -n "${{ github.event.inputs.PACK_VERSION }}" ]; then
           BUILD_ARG_CHECK="$BUILD_ARG_CHECK,PACK_VERSION=${{ github.event.inputs.PACK_VERSION }}"
           fi
-          n=`expr BUILD_ARG_CHECK : '.*'`
-          if [ $n -lt 2 ]; then
-            BUILD_ARG_CHECK=''
-          else
-            BUILD_ARG_CHECK="$BUILD_ARG_CHECK]"
-          fi
+          BUILD_ARG_CHECK="$BUILD_ARG_CHECK]"
           echo $BUILD_ARG_CHECK
           echo "BUILD_ARGS=$BUILD_ARG_CHECK" >> "$GITHUB_ENV"
           
