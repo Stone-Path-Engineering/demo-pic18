@@ -60,7 +60,7 @@ jobs:
           fi
           n=`expr BUILD_ARG_CHECK : '.*'`
           if [ $n -lt 2 ]; then
-          BUILD_ARG_CHECK=''
+          printf BUILD_ARG_CHECK=''
           fi
           echo $BUILD_ARG_CHECK
           {
