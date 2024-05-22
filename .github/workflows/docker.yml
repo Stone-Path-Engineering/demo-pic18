@@ -27,7 +27,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  BUILD_ARGS: '|'
+  BUILD_ARGS: ''
 
 # There is a single job in this workflow. 
 # It's configured to run on the latest available version of Ubuntu.
@@ -45,23 +45,30 @@ jobs:
       # and the default one in the Dockerfile will be used. 
       - name: Determine Build Args
         run: |
+          BUILD_ARG_CHECK="|"
           if [ -n "${{ github.event.inputs.MPLABX_VERSION }}" ]; then
-          echo "\nMPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}" >> ${{ env.BUILD_ARGS }}
+          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nMPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}"
           fi
           if [ -n "${{ github.event.inputs.XC8_VERSION }}" ]; then
-          echo "\nXC8_VERSION=${{ github.event.inputs.XC8_VERSION }}" >> ${{ env.BUILD_ARGS }}
+          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nXC8_VERSION=${{ github.event.inputs.XC8_VERSION }}"
           fi
           if [ -n "${{ github.event.inputs.PACK_FAMILY }}" ]; then
-          echo "\nPACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }}" >> ${{ env.BUILD_ARGS }}
+          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nPACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }}"
           fi
           if [ -n "${{ github.event.inputs.PACK_VERSION }}" ]; then
-          echo "\nPACK_VERSION=${{ github.event.inputs.PACK_VERSION }}" >> ${{ env.BUILD_ARGS }}
+          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nPACK_VERSION=${{ github.event.inputs.PACK_VERSION }}"
           fi
-          n=`expr ${{ env.BUILD_ARGS }} : '.*'`
-          if [ $n -lt 3 ]; then
-          ${{ env.BUILD_ARGS }}=''
+          n=`expr BUILD_ARG_CHECK : '.*'`
+          if [ $n -lt 2 ]; then
+          BUILD_ARG_CHECK=''
           fi
-          echo ${{ env.BUILD_ARGS }}
+          echo $BUILD_ARG_CHECK
+          {
+            echo 'BUILD_ARGS<<EOL'
+            $BUILD_ARG_CHECK
+            echo EOL
+          } >> "$GITHUB_ENV"
+          
       - name: Checkout repository
         uses: actions/checkout@v4
 
