@@ -65,7 +65,7 @@ jobs:
           echo $BUILD_ARG_CHECK
           {
             echo 'BUILD_ARGS<<EOL'
-            printf $BUILD_ARG_CHECK
+            echo $BUILD_ARG_CHECK
             echo EOL
           } >> "$GITHUB_ENV"
           
