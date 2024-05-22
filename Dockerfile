@@ -21,6 +21,7 @@ LABEL com.stonepathengineering.demo-pic18.pack_version=$PACK_VERSION
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
+    ca-certificates=20240203 \
     libc6:i386=2.39-0ubuntu8.1 \
     libx11-6:i386=2:1.8.7-1build1 \
     libxext6:i386=2:1.3.4-1build2 \
