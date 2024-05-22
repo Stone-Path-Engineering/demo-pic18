@@ -45,29 +45,27 @@ jobs:
       # and the default one in the Dockerfile will be used. 
       - name: Determine Build Args
         run: |
-          BUILD_ARG_CHECK="|"
+          BUILD_ARG_CHECK="["
           if [ -n "${{ github.event.inputs.MPLABX_VERSION }}" ]; then
-          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nMPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}"
+          BUILD_ARG_CHECK="$BUILD_ARG_CHECK,MPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}"
           fi
           if [ -n "${{ github.event.inputs.XC8_VERSION }}" ]; then
-          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nXC8_VERSION=${{ github.event.inputs.XC8_VERSION }}"
+          BUILD_ARG_CHECK="$BUILD_ARG_CHECK,XC8_VERSION=${{ github.event.inputs.XC8_VERSION }}"
           fi
           if [ -n "${{ github.event.inputs.PACK_FAMILY }}" ]; then
-          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nPACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }}"
+          BUILD_ARG_CHECK="$BUILD_ARG_CHECK,PACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }}"
           fi
           if [ -n "${{ github.event.inputs.PACK_VERSION }}" ]; then
-          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nPACK_VERSION=${{ github.event.inputs.PACK_VERSION }}"
+          BUILD_ARG_CHECK="$BUILD_ARG_CHECK,PACK_VERSION=${{ github.event.inputs.PACK_VERSION }}"
           fi
           n=`expr BUILD_ARG_CHECK : '.*'`
           if [ $n -lt 2 ]; then
-          BUILD_ARG_CHECK=''
+            BUILD_ARG_CHECK=''
+          else
+            BUILD_ARG_CHECK="$BUILD_ARG_CHECK]"
           fi
           echo $BUILD_ARG_CHECK
-          {
-            echo 'BUILD_ARGS<<EOL'
-            echo $BUILD_ARG_CHECK
-            echo EOL
-          } >> "$GITHUB_ENV"
+          echo "BUILD_ARGS=$BUILD_ARG_CHECK" >> "$GITHUB_ENV"
           
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -109,4 +107,4 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: ${{ env.BUILD_ARGS }}
+          build-args: ${{ fromJson(env.BUILD_ARGS) }}
