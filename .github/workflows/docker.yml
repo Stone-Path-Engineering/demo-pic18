@@ -5,19 +5,19 @@ on:
   workflow_dispatch:
     inputs:
       MPLABX_VERSION:
-        description: 'Will use version specified in Dockerfile unless specified here'
+        description: 'MPLabX Version'
         required: false
         type: string
       XC8_VERSION:
-        description: 'Will use version specified in Dockerfile unless specified here'
+        description: 'XC8 Version'
         required: false
         type: string
       PACK_FAMILY:
-        description: 'Will use family specified in Dockerfile unless specified here'
+        description: 'Pack Family'
         required: false
         type: string
       PACK_VERSION:
-        description: 'Will use version specified in Dockerfile unless specified here'
+        description: 'Pack Version'
         required: false
         type: string
         
