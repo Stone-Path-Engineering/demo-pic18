@@ -60,7 +60,7 @@ jobs:
           fi
           BUILD_ARG_CHECK="$BUILD_ARG_CHECK]"
           echo $BUILD_ARG_CHECK
-          echo "BUILD_ARGS=$BUILD_ARG_CHECK" >> "$GITHUB_ENV"
+          echo "braBUILD_ARGSnches=$( echo "$BUILD_ARG_CHECK" )" >> "$GITHUB_ENV"
           
       - name: Checkout repository
         uses: actions/checkout@v4
