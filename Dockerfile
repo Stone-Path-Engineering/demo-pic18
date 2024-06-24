@@ -52,7 +52,7 @@ ENV PATH $PATH:/opt/mplabx/mplab_platform/bin/:/opt/mplabx/mplab_platform/bin/cp
 RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc8-v${XC8_VERSION}-full-install-linux-x64-installer.run" --no-check-certificate && \
     chmod +x /tmp/xc8 && \
     /tmp/xc8 --mode unattended --unattendedmodeui none --netservername localhost --LicenseType FreeMode --prefix "/opt/microchip/xc8/v${XC8_VERSION}" && \
-    rm /tmp/xc8 && rm -r opt/microchip/xc8/v2.46/docs/
+    rm /tmp/xc8 && rm -r opt/microchip/xc8/v${XC8_VERSION}/docs/
 
 # Add xc8-cc to PATH
 ENV PATH $PATH:/opt/microchip/xc8/v${XC8_VERSION}/bin
