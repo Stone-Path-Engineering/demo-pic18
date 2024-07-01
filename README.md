@@ -48,7 +48,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 To use this demo project locally, you will need to install either [MPLabX IDE](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide) with the XC8 compiler, or [Docker](https://docs.docker.com/get-docker/).
 
-If you are using both, for exapmle, the IDE locally and Docker on GitHub Actions, ensure that the IDE and compiler versions you are using to build your Docker image match what you installed locally. The IDE will help you download the correct device pack, but if you change it, ensure that it matches in both environments as well.
+If you are using both, for example, the IDE locally and Docker on GitHub Actions, ensure that the IDE and compiler versions you are using to build your Docker image match what you installed locally. The IDE will help you download the correct device pack, but if you change it, ensure that it matches in both environments as well.
 
 ### Getting the Source
 
