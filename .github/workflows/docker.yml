@@ -1,24 +1,26 @@
 name: demo-pic18-dockerfile
 
-# Configures this workflow to run on manual request with optional inputs
+# Configures this workflow to run on manual request with required inputs
+# Pack names and versions can be found at https://packs.download.microchip.com/
+# or in the `nbproject/configurations.xml` in your project.
 on:
   workflow_dispatch:
     inputs:
       MPLABX_VERSION:
         description: 'MPLabX Version'
-        required: false
+        required: true
         type: string
       XC8_VERSION:
         description: 'XC8 Version'
-        required: false
+        required: true
         type: string
       PACK_FAMILY:
         description: 'Pack Family'
-        required: false
+        required: true
         type: string
       PACK_VERSION:
         description: 'Pack Version'
-        required: false
+        required: true
         type: string
         
 # Defines two custom environment variables for the workflow.
@@ -40,27 +42,6 @@ jobs:
       packages: write
       
     steps:
-      # Uses the inputs from the workflow dispatch defined above to determine
-      # build args. If nothing was input, the arg isn't added to the list
-      # and the default one in the Dockerfile will be used. 
-      - name: Determine Build Args
-        run: |
-          BUILD_ARG_CHECK="|\nGIT_SHA=${{ github.sha }}"
-          if [ -n "${{ github.event.inputs.MPLABX_VERSION }}" ]; then
-          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nMPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}"
-          fi
-          if [ -n "${{ github.event.inputs.XC8_VERSION }}" ]; then
-          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nXC8_VERSION=${{ github.event.inputs.XC8_VERSION }}"
-          fi
-          if [ -n "${{ github.event.inputs.PACK_FAMILY }}" ]; then
-          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nPACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }}"
-          fi
-          if [ -n "${{ github.event.inputs.PACK_VERSION }}" ]; then
-          BUILD_ARG_CHECK="$BUILD_ARG_CHECK\nPACK_VERSION=${{ github.event.inputs.PACK_VERSION }}"
-          fi
-          BUILD_ARG_CHECK="$BUILD_ARG_CHECK"
-          echo $BUILD_ARG_CHECK
-          echo "BUILD_ARGS=$( echo "$BUILD_ARG_CHECK" )" >> "$GITHUB_ENV"
           
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -102,4 +83,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: ${{ env.BUILD_ARGS }}
+          build-args: |
+            GIT_SHA=${{ github.sha }}
+            MPLABX_VERSION=${{ github.event.inputs.MPLABX_VERSION }}
+            XC8_VERSION=${{ github.event.inputs.XC8_VERSION }}
+            PACK_FAMILY=${{ github.event.inputs.PACK_FAMILY }}
+            PACK_VERSION=${{ github.event.inputs.PACK_VERSION }}

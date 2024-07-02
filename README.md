@@ -98,7 +98,9 @@ This project uses [Semantic Versioning](http://semver.org/). For a list of avail
 
 Docker packages are made in this project as examples to reference for your own projects only. Docker releases are made by triggering the manual demo-pic18-dockerfile workflow.
 
-Different versions of MPLabX, XC8, or Device Packs can be installed in an image by providing the desired versions as arguments when building the image. Multiple device packs is not supported by the current Dockerfile.
+The versions of MPLabX, XC8, and Device Packs in an image are chosen by providing the desired versions as required arguments when triggering the workflow. Pack names and versions can be found on [Microchip's Pack Registry](https://packs.download.microchip.com/) or in the `nbproject/configurations.xml` in your project.
+
+Addding multiple device packs in one image is not supported by the current Dockerfile and GitHub Action. Default build args are supplied in the Dockerfile so that it can be easily used independently of the GitHub Actions workflow.
 
 **[Back to top](#table-of-contents)**
 
