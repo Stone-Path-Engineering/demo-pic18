@@ -2,6 +2,8 @@ name: demo-pic18-build
 
 on:
   push:
+    tags-ignore:
+      - '**'
 
 jobs:
   build:
