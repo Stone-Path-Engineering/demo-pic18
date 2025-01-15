@@ -1,0 +1,104 @@
+# =========================================================================
+#   Ceedling - Test-Centered Build System for C
+#   ThrowTheSwitch.org
+#   Copyright (c) 2010-25 Mike Karlesky, Mark VanderVoord, & Greg Williams
+#   SPDX-License-Identifier: MIT
+# =========================================================================
+
+# Further documentation: 
+# https://github.com/ThrowTheSwitch/Ceedling/blob/v1.0.0/assets/project_as_gem.yml
+# https://github.com/ThrowTheSwitch/Ceedling/blob/v1.0.0/docs/CeedlingPacket.md#the-almighty-ceedling-project-configuration-file-in-glorious-yaml 
+
+---
+
+:project:
+
+  # how to use ceedling. If you're not sure, leave this as `gem` and `?`
+  :which_ceedling: gem
+  :ceedling_version: '?'
+
+  # tweak the way ceedling handles automatic tasks
+  :build_root: build
+  :test_file_prefix: test_
+  :default_tasks:
+    - test:all
+
+  # enable release build here (more details in release_build section below)
+  :release_build: FALSE
+
+# Details to configure the way Ceedling handles release code
+# :release_build:
+#   :output: MyApp.out
+#   :use_assembly: FALSE
+#   :artifacts: []
+
+# Plugins are optional Ceedling features which can be enabled. Ceedling supports
+# a variety of plugins which may effect the way things are compiled, reported, 
+# or may provide new command options. Refer to the readme in each plugin for 
+# details on how to use it.
+:plugins:
+  :load_paths: []
+  :enabled:
+    #- beep                           # beeps when finished, so you don't waste time waiting for ceedling
+    #- module_generator                # handy for quickly creating source, header, and test templates
+    #- gcov                           # test coverage using gcov. Requires gcc, gcov, and a coverage analyzer like gcovr
+    #- bullseye                       # test coverage using bullseye. Requires bullseye for your platform
+    #- command_hooks                  # write custom actions to be called at different points during the build process
+    #- compile_commands_json_db       # generate a compile_commands.json file
+    #- dependencies                   # automatically fetch 3rd party libraries, etc.
+    #- subprojects                    # managing builds and test for static libraries
+    #- fake_function_framework        # use FFF instead of CMock
+
+    # Report options (You'll want to choose one stdout option, but may choose multiple stored options if desired)
+    #- report_build_warnings_log
+    #- report_tests_gtestlike_stdout
+    #- report_tests_ide_stdout
+    #- report_tests_log_factory
+    - report_tests_pretty_stdout
+    #- report_tests_raw_output_log
+    #- report_tests_teamcity_stdout
+
+# Specify which reports you'd like from the log factory
+:report_tests_log_factory:
+  :reports:
+    - junit 
+    - cppunit 
+    - html 
+    #- json 
+
+:paths:
+  :test:
+    - test/**
+  :source:
+    - timer-blink.X/**
+  :include:
+    - timer-blink.X/**
+  #:support:
+  #  -tests/support
+  :libraries: []
+
+# Compilation symbols to be injected into builds
+# See documentation for advanced options:
+#  - Test name matchers for different symbols per test executable build
+#  - Referencing symbols in multiple lists using advanced YAML
+#  - Specifiying symbols used during test preprocessing
+#:defines:
+#  :test:
+#    - TEST # Simple list option to add symbol 'TEST' to compilation of all files in all test executables
+#  :release: []
+#
+#  # Enable to inject name of a test as a unique compilation symbol into its respective executable build. 
+#  :use_test_definition: FALSE 
+
+# Configure additional command line flags provided to tools used in each build step
+# :flags:
+#   :release:
+#     :compile:         # Add '-Wall' and '--02' to compilation of all files in release target
+#       - -Wall
+#       - --O2
+#   :test:
+#     :compile:
+#       '(_|-)special': # Add '-pedantic' to compilation of all files in all test executables with '_special' or '-special' in their names
+#         - -pedantic
+#       '*':            # Add '-foo' to compilation of all files in all test executables
+#         - -foo
