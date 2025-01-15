@@ -22,6 +22,11 @@
   :test_file_prefix: test_
   :default_tasks:
     - test:all
+  :use_mocks: TRUE
+  :use_test_preprocessor: :none  # options are :none, :mocks, :tests, or :all
+  :use_deep_preprocessor: :mocks  # options are :none, :mocks, :tests, or :all
+  :use_backtrace: :simple        # options are :none, :simple, or :gdb
+  :use_decorators: :auto         # decorate Ceedling's output text. options are :auto, :all, or :none
 
   # enable release build here (more details in release_build section below)
   :release_build: FALSE
@@ -73,9 +78,19 @@
     - timer-blink.X/**
   :include:
     - timer-blink.X/**
-  #:support:
-  #  -tests/support
+  :support:
+   - test/support/**
   :libraries: []
+
+:cmock:
+  :mock_prefix: Mock
+  :when_no_prototypes: warn
+  :enforce_strict_ordering: TRUE
+  :plugins:
+    - :ignore
+    - :callback
+  :treat_inlines: TRUE
+
 
 # Compilation symbols to be injected into builds
 # See documentation for advanced options:
