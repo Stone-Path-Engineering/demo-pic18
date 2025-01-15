@@ -11,7 +11,7 @@
 */
 
 /*
-© [2024] Microchip Technology Inc. and its subsidiaries.
+ï¿½ [2024] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -32,6 +32,7 @@
 */
 #include "mcc_generated_files/system/system.h"
 
+// Function to be called by the Timer0 overflow interrupt
 void LED_PIN_ISR(void){ 
     LED_PIN_Toggle();
     }
@@ -53,8 +54,10 @@ int main(void)
     //"LED_PIN_ISR" function to be called whenever the timer overflows.
     Timer0_OverflowCallbackRegister(LED_PIN_ISR);
     
-    // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts 
-    // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global Interrupts 
+    // If using interrupts in PIC18 High/Low Priority Mode you need to enable
+    // the Global High and Low Interrupts 
+    // If using interrupts in PIC Mid-Range Compatibility Mode you need to 
+    //enable the Global Interrupts 
     // Use the following macros to: 
 
     // Enable the Global Interrupts 
