@@ -1,14 +1,19 @@
 FROM ubuntu:24.04
 
-# Starting point from Alex Fabre at https://github.com/AlexFabre/mplabx-xc8
-LABEL author="Bailey Steinfadt"
-LABEL description="Build MPLAB X projects with XC8"
-LABEL org.opencontainers.image.description "Build MPLAB X projects with XC8"
-
 ARG MPLABX_VERSION=6.20
 ARG XC8_VERSION=2.46
 ARG PACK_FAMILY=PIC18F-Q_DFP
 ARG PACK_VERSION=1.25.433
+
+# Starting point from Alex Fabre at https://github.com/AlexFabre/mplabx-xc8
+LABEL org.opencontainers.image.authors="Bailey Steinfadt"
+LABEL org.opencontainers.image.vendor "Stone Path Engineering, LLC"
+LABEL org.opencontainers.image.title "MPLABX - XC8"
+LABEL org.opencontainers.image.description "Build MPLAB X projects with XC8"
+LABEL com.stonepathengineering.demo-pic18.mplabx_version=$MPLABX_VERSION
+LABEL com.stonepathengineering.demo-pic18.xc8_version=$XC8_VERSION
+LABEL com.stonepathengineering.demo-pic18.pack_family=$PACK_FAMILY
+LABEL com.stonepathengineering.demo-pic18.pack_version=$PACK_VERSION
 
 # Install the dependencies
 # See https://microchipdeveloper.com/install:mplabx-lin64
@@ -16,7 +21,8 @@ ARG PACK_VERSION=1.25.433
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-    libc6:i386=2.39-0ubuntu8 \
+    ca-certificates=20240203 \
+    libc6:i386=2.39-0ubuntu8.2 \
     libx11-6:i386=2:1.8.7-1build1 \
     libxext6:i386=2:1.3.4-1build2 \
     libstdc++6:i386=14-20240412-0ubuntu1 \
@@ -46,7 +52,7 @@ ENV PATH $PATH:/opt/mplabx/mplab_platform/bin/:/opt/mplabx/mplab_platform/bin/cp
 RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc8-v${XC8_VERSION}-full-install-linux-x64-installer.run" --no-check-certificate && \
     chmod +x /tmp/xc8 && \
     /tmp/xc8 --mode unattended --unattendedmodeui none --netservername localhost --LicenseType FreeMode --prefix "/opt/microchip/xc8/v${XC8_VERSION}" && \
-    rm /tmp/xc8 && rm -r opt/microchip/xc8/v2.46/docs/
+    rm /tmp/xc8 && rm -r opt/microchip/xc8/v${XC8_VERSION}/docs/
 
 # Add xc8-cc to PATH
 ENV PATH $PATH:/opt/microchip/xc8/v${XC8_VERSION}/bin

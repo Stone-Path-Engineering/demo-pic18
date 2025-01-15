@@ -48,7 +48,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 To use this demo project locally, you will need to install either [MPLabX IDE](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide) with the XC8 compiler, or [Docker](https://docs.docker.com/get-docker/).
 
-If you are using both, for exapmle, the IDE locally and Docker on GitHub Actions, ensure that the IDE and compiler versions you are using to build your Docker image match what you installed locally. The IDE will help you download the correct device pack, but if you change it, ensure that it matches in both environments as well.
+If you are using both, for example, the IDE locally and Docker on GitHub Actions, ensure that the IDE and compiler versions you are using to build your Docker image match what you installed locally. The IDE will help you download the correct device pack, but if you change it, ensure that it matches in both environments as well.
 
 ### Getting the Source
 
@@ -98,7 +98,9 @@ This project uses [Semantic Versioning](http://semver.org/). For a list of avail
 
 Docker packages are made in this project as examples to reference for your own projects only. Docker releases are made by triggering the manual demo-pic18-dockerfile workflow.
 
-Different versions of MPLabX, XC8, or Device Packs can be installed in an image by providing the desired versions as arguments when building the image. Multiple device packs is not supported by the current Dockerfile.
+The versions of MPLabX, XC8, and Device Packs in an image are chosen by providing the desired versions as required arguments when triggering the workflow. Pack names and versions can be found on [Microchip's Pack Registry](https://packs.download.microchip.com/) or in the `nbproject/configurations.xml` in your project.
+
+Addding multiple device packs in one image is not supported by the current Dockerfile and GitHub Action. Default build args are supplied in the Dockerfile so that it can be easily used independently of the GitHub Actions workflow.
 
 **[Back to top](#table-of-contents)**
 
