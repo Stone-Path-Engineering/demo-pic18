@@ -1,7 +1,8 @@
 #include "unity.h"
 #include "gpio_driver.h"
 
-#include "Mocksystem.h"
+#include "Mockpins.h"
+
 
 void test_is_LED_On_shouldBeTrueWhenPinHigh(void)
 {
