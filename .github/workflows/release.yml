@@ -1,5 +1,8 @@
 name: demo-pic18-release
 
+permissions:
+  write-all
+  
 on:
   push:
     tags:
