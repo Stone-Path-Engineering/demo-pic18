@@ -9,6 +9,19 @@ on:
   pull_request:
 
 jobs:
+  test: 
+    name: Test project
+    runs-on: ubuntu-latest
+    container: throwtheswitch/madsciencelab-plugins
+    steps:
+      - name: Download source
+        uses: actions/checkout@v1
+
+      - name: Test project
+        run: ceedling test:all
+
+        # todo post artifacts
+
   build:
     name: Build project
     runs-on: ubuntu-latest
@@ -36,6 +49,8 @@ jobs:
       #       timer-blink.X/dist/default/debug/timer-blink.X.debug.bin
       #       timer-blink.X/dist/default/debug/timer-blink.X.debug.map
       #       timer-blink.X/dist/default/debug/timer-blink.X.debug.lst
+
+      
 
       - name: Build release
         run: make -C timer-blink.X CONF=release build CFLAGS="-mdfp=/opt/mplabx/packs/Microchip/$PACK_FAMILY/$PACK_VERSION"
