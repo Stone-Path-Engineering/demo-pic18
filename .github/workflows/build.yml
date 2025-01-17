@@ -12,10 +12,13 @@ jobs:
   test: 
     name: Test project
     runs-on: ubuntu-latest
-    container: throwtheswitch/madsciencelab-plugins
+    container: 
+      image: throwtheswitch/madsciencelab-plugins
+      options: --user root
     steps:
       - name: Download source
         uses: actions/checkout@v4
+        
 
       - name: Test project
         run: ceedling test:all
