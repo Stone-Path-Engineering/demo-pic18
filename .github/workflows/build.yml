@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Download source
         uses: actions/checkout@v4
-        with:
-          path: "/home/dev/project"
 
       - name: Test project
         run: ceedling test:all
