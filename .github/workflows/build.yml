@@ -15,7 +15,9 @@ jobs:
     container: throwtheswitch/madsciencelab-plugins
     steps:
       - name: Download source
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
+        with:
+          path: "/home/dev/project"
 
       - name: Test project
         run: ceedling test:all
@@ -28,7 +30,7 @@ jobs:
     container: "ghcr.io/stone-path-engineering/demo-pic18:main"
     steps:
       - name: Download source
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: MPLAB Makefiles generation
         run: prjMakefilesGenerator.sh timer-blink.X
