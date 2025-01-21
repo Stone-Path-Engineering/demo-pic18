@@ -22,14 +22,12 @@ RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
     ca-certificates=20240203 \
-    libc6:i386=2.39-0ubuntu8.2 \
     libx11-6:i386=2:1.8.7-1build1 \
     libxext6:i386=2:1.3.4-1build2 \
-    libstdc++6:i386=14-20240412-0ubuntu1 \
+    libstdc++6:i386=14.2.0-4ubuntu2~24.04 \
     libexpat1:i386=2.6.1-2build1 \
     libusb-1.0-0-dev=2:1.0.27-1 \
     wget=1.21.4-1ubuntu4 \
-    procps=2:4.0.4-4ubuntu3 \
     sudo=1.9.15p5-3ubuntu5 \
     unzip=6.0-28ubuntu4 \
     make=4.3-4.1build2 && \
