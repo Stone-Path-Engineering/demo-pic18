@@ -7,9 +7,9 @@ ARG PACK_VERSION=1.25.433
 
 # Starting point from Alex Fabre at https://github.com/AlexFabre/mplabx-xc8
 LABEL org.opencontainers.image.authors="Bailey Steinfadt"
-LABEL org.opencontainers.image.vendor "Stone Path Engineering, LLC"
-LABEL org.opencontainers.image.title "MPLABX - XC8"
-LABEL org.opencontainers.image.description "Build MPLAB X projects with XC8"
+LABEL org.opencontainers.image.vendor="Stone Path Engineering, LLC"
+LABEL org.opencontainers.image.title="MPLABX - XC8"
+LABEL org.opencontainers.image.description="Build MPLAB X projects with XC8"
 LABEL com.stonepathengineering.demo-pic18.mplabx_version=$MPLABX_VERSION
 LABEL com.stonepathengineering.demo-pic18.xc8_version=$XC8_VERSION
 LABEL com.stonepathengineering.demo-pic18.pack_family=$PACK_FAMILY
@@ -46,7 +46,7 @@ RUN wget -nv -O mplabx "https://ww1.microchip.com/downloads/aemDocuments/documen
     rm mplabx && rm -r opt/mplabx/docs/ && rm -r opt/mplabx/mplab_platform/ide/docs/
 
 # Add mplab tools to PATH
-ENV PATH $PATH:/opt/mplabx/mplab_platform/bin/:/opt/mplabx/mplab_platform/bin/cppcheck
+ENV PATH=$PATH:/opt/mplabx/mplab_platform/bin/:/opt/mplabx/mplab_platform/bin/cppcheck
 
 # Download and install XC8
 RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc8-v${XC8_VERSION}-full-install-linux-x64-installer.run" --no-check-certificate && \
@@ -55,7 +55,7 @@ RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/docum
     rm /tmp/xc8 && rm -r opt/microchip/xc8/v${XC8_VERSION}/docs/
 
 # Add xc8-cc to PATH
-ENV PATH $PATH:/opt/microchip/xc8/v${XC8_VERSION}/bin
+ENV PATH=$PATH:/opt/microchip/xc8/v${XC8_VERSION}/bin
 
 # Download and install appropriate pack
 # https://packs.download.microchip.com/ 
@@ -65,8 +65,8 @@ RUN wget -nv -O /tmp/pack "https://packs.download.microchip.com/Microchip.${PACK
     unzip /tmp/pack -d /opt/mplabx/packs/Microchip/${PACK_FAMILY}/${PACK_VERSION} && \
     rm /tmp/pack
 
-ENV PACK_FAMILY ${PACK_FAMILY}
-ENV PACK_VERSION ${PACK_VERSION}
+ENV PACK_FAMILY=${PACK_FAMILY}
+ENV PACK_VERSION=${PACK_VERSION}
 
 # Uninstall? Check after testing above works
 #opt/microchip/mplabcomm/3.53.00/MPLABCOMM-3.53.00-linux-installer.run
