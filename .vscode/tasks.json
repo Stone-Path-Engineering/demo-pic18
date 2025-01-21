@@ -1,0 +1,61 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "docker run -w /source -it --rm -v $(pwd):/source ghcr.io/stone-path-engineering/demo-pic18:main ./build.sh",
+            "windows":{
+                "command": "docker run -w /source -it --rm -v %cd%:/source ghcr.io/stone-path-engineering/demo-pic18:main ./build.sh",
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "source": "gcc",
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": "build"
+        },
+        {
+            "label": "cppcheck",
+            "type": "shell",
+            "command": "docker run -w /source -it --rm -v $(pwd):/source ghcr.io/stone-path-engineering/demo-pic18:main cppcheck --quiet --template=gcc timer-blink.X/ -i timer-blink.X/mcc_generated_files",
+            "windows":{
+                "command": "docker run -w /source -it --rm -v %cd%:/source ghcr.io/stone-path-engineering/demo-pic18:main cppcheck --quiet --template=gcc timer-blink.X/ -i timer-blink.X/mcc_generated_files",
+            },
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "source": "gcc",
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "group": "test"
+        },
+        {
+            "label": "ceedling",
+            "type": "shell",
+            "command": "docker run -it --rm -v $(pwd):/home/dev/project throwtheswitch/madsciencelab-plugins:1.0.0 ceedling test:all",
+            "windows":{
+                "command": "docker run -it --rm -v %cd%:/home/dev/project throwtheswitch/madsciencelab-plugins:1.0.0 ceedling test:all",
+            },
+            "problemMatcher": [],
+            "group": "test"
+        }
+    ]
+}
