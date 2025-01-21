@@ -4,6 +4,8 @@ on:
   push:
     tags-ignore:
       - '**'
+    branches:
+      - '**'
   pull_request:
 
 jobs:
@@ -17,6 +19,9 @@ jobs:
 
       - name: MPLAB Makefiles generation
         run: prjMakefilesGenerator.sh timer-blink.X
+
+      - name: CppCheck
+        run:  cppcheck --quiet --template=gcc timer-blink.X/ -i timer-blink.X/mcc_generated_files
 
       # - name: Build debug
       #   run: make -C timer-blink.X CONF=default build CFLAGS="-mdfp=/opt/mplabx/packs/Microchip/$PACK_FAMILY/$PACK_VERSION"

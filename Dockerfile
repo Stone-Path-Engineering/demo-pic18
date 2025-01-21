@@ -7,9 +7,9 @@ ARG PACK_VERSION=1.25.433
 
 # Starting point from Alex Fabre at https://github.com/AlexFabre/mplabx-xc8
 LABEL org.opencontainers.image.authors="Bailey Steinfadt"
-LABEL org.opencontainers.image.vendor "Stone Path Engineering, LLC"
-LABEL org.opencontainers.image.title "MPLABX - XC8"
-LABEL org.opencontainers.image.description "Build MPLAB X projects with XC8"
+LABEL org.opencontainers.image.vendor="Stone Path Engineering, LLC"
+LABEL org.opencontainers.image.title="MPLABX - XC8"
+LABEL org.opencontainers.image.description="Build MPLAB X projects with XC8"
 LABEL com.stonepathengineering.demo-pic18.mplabx_version=$MPLABX_VERSION
 LABEL com.stonepathengineering.demo-pic18.xc8_version=$XC8_VERSION
 LABEL com.stonepathengineering.demo-pic18.pack_family=$PACK_FAMILY
@@ -22,14 +22,12 @@ RUN dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
     ca-certificates=20240203 \
-    libc6:i386=2.39-0ubuntu8.2 \
     libx11-6:i386=2:1.8.7-1build1 \
     libxext6:i386=2:1.3.4-1build2 \
-    libstdc++6:i386=14-20240412-0ubuntu1 \
+    libstdc++6:i386=14.2.0-4ubuntu2~24.04 \
     libexpat1:i386=2.6.1-2build1 \
     libusb-1.0-0-dev=2:1.0.27-1 \
     wget=1.21.4-1ubuntu4 \
-    procps=2:4.0.4-4ubuntu3 \
     sudo=1.9.15p5-3ubuntu5 \
     unzip=6.0-28ubuntu4 \
     make=4.3-4.1build2 && \
@@ -46,7 +44,7 @@ RUN wget -nv -O mplabx "https://ww1.microchip.com/downloads/aemDocuments/documen
     rm mplabx && rm -r opt/mplabx/docs/ && rm -r opt/mplabx/mplab_platform/ide/docs/
 
 # Add mplab tools to PATH
-ENV PATH $PATH:/opt/mplabx/mplab_platform/bin/:/opt/mplabx/mplab_platform/bin/cppcheck
+ENV PATH=$PATH:/opt/mplabx/mplab_platform/bin/:/opt/mplabx/mplab_platform/bin/cppcheck
 
 # Download and install XC8
 RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc8-v${XC8_VERSION}-full-install-linux-x64-installer.run" --no-check-certificate && \
@@ -55,7 +53,7 @@ RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/docum
     rm /tmp/xc8 && rm -r opt/microchip/xc8/v${XC8_VERSION}/docs/
 
 # Add xc8-cc to PATH
-ENV PATH $PATH:/opt/microchip/xc8/v${XC8_VERSION}/bin
+ENV PATH=$PATH:/opt/microchip/xc8/v${XC8_VERSION}/bin
 
 # Download and install appropriate pack
 # https://packs.download.microchip.com/ 
@@ -65,8 +63,8 @@ RUN wget -nv -O /tmp/pack "https://packs.download.microchip.com/Microchip.${PACK
     unzip /tmp/pack -d /opt/mplabx/packs/Microchip/${PACK_FAMILY}/${PACK_VERSION} && \
     rm /tmp/pack
 
-ENV PACK_FAMILY ${PACK_FAMILY}
-ENV PACK_VERSION ${PACK_VERSION}
+ENV PACK_FAMILY=${PACK_FAMILY}
+ENV PACK_VERSION=${PACK_VERSION}
 
 # Uninstall? Check after testing above works
 #opt/microchip/mplabcomm/3.53.00/MPLABCOMM-3.53.00-linux-installer.run
